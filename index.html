@@ -7,8 +7,9 @@
 
   <!-- Mobile / Theme -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#a855f7">
-  <meta name="msapplication-TileColor" content="#a855f7">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="msapplication-TileColor" content="#0f172a">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
   <!-- SEO -->
@@ -33,18 +34,23 @@
   <!-- PWA / Manifest -->
   <link rel="manifest" href="manifest.json">
 
+  <!-- Styles -->
   <link href="src/global.css" type="text/css" rel="stylesheet" />
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
-  <script src="src/main.js" defer></script>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link
     href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
     rel="stylesheet">
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="src/main.js" defer></script>
 </head>
 
 <body class="min-h-screen flex flex-col relative bg-gray-950">
 
+  <!-- Background Blobs and Scanlines -->
   <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
     <div class="absolute w-80 h-80 bg-cyan-500/10 rounded-full top-1/4 left-1/3 blur-3xl animate-blob"></div>
     <div
@@ -53,9 +59,11 @@
     <div class="scanlines absolute inset-0 opacity-30"></div>
   </div>
 
+  <!-- Header -->
   <header
     class="relative z-20 w-full px-4 sm:px-8 py-6 flex justify-between items-center border-b border-white/10 backdrop-blur-md bg-black/5">
 
+    <!-- Logo and Title -->
     <div class="flex items-center space-x-4">
       <div class="w-1.5 h-10 sm:h-12 bg-cyan-500 rounded-full shadow-[0_0_15px_rgba(6,182,212,0.5)]"></div>
 
@@ -80,6 +88,7 @@
 
     </div>
 
+    <!-- GitHub Link -->
     <div class="group cursor-pointer">
       <a href="https://github.com/caBRAPI" target="_blank" rel="noopener noreferrer"
         class="flex items-center space-x-2 bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-full border border-white/5 transition-all duration-300">
@@ -103,15 +112,18 @@
 
   <main class="flex-grow flex items-center justify-center p-4 sm:p-6 relative overflow-hidden">
 
+    <!-- Background Blobs -->
     <div
       class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-cyan-500/10 rounded-full blur-[80px] sm:blur-[120px] -z-10">
     </div>
 
+    <!-- Main Content -->
     <div class="glass w-full max-w-[580px] rounded-[2rem] p-6 sm:p-10 shadow-2xl relative">
       <div
         class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-40">
       </div>
 
+      <!-- Toast Container -->
       <div id="toast-container"
         class="fixed top-[100px] left-1/2 -translate-x-1/2 z-[100] pointer-events-none w-full max-w-[400px] px-4">
         <div id="toast"
@@ -136,7 +148,10 @@
         </div>
       </div>
 
+      <!-- Content -->
       <div class="flex flex-col space-y-6 sm:space-y-8">
+
+        <!-- Title and Subtitle -->
         <div class="text-center space-y-3">
           <h2 class="text-xl sm:text-3xl font-[900] uppercase tracking-tighter text-white italic">
             Gerar Novo <span class="text-cyan-400 text-glow">Código</span>
@@ -146,19 +161,20 @@
           </p>
         </div>
 
+        <!-- Input Field -->
         <div class="relative group">
           <div
-            class="absolute left-5 top-1/2 -translate-y-1/2 text-cyan-500/50 group-focus-within:text-cyan-400 transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-            </svg>
+            class="absolute left-5 top-1/2 -translate-y-1/2 text-cyan-500/40 group-focus-within:text-cyan-400 transition-colors">
+            <i class="fa-solid fa-link text-[15px]"></i>
           </div>
-          <input type="text" id="QR_INPUT" placeholder="Insira o link aqui..."
-            class="w-full bg-black/60 border border-white/10 rounded-2xl pl-14 pr-6 py-4 sm:py-5 text-white placeholder:text-[13px] sm:placeholder:text-sm placeholder:text-gray-600 focus:outline-none focus:border-cyan-500/40 focus:ring-4 focus:ring-cyan-500/5 transition-all text-base font-medium shadow-inner">
+
+          <input type="text" id="QR_INPUT" placeholder="INSIR O LINK AQUI..." class="w-full bg-black/60 border border-white/10 rounded-2xl pl-14 pr-6 py-4 sm:py-5 text-white
+           placeholder:text-gray-500 placeholder:text-sm focus:outline-none
+           focus:border-cyan-500/40 focus:ring-4 focus:ring-cyan-500/5
+           transition-all text-base font-medium shadow-inner">
         </div>
 
+        <!-- Generate Button -->
         <button id="GENERATE"
           class="group relative w-full overflow-hidden rounded-2xl p-[2px] transition-all duration-300 active:scale-[0.98] shadow-lg shadow-cyan-900/40 hover:shadow-cyan-700/60">
           <div
@@ -185,6 +201,7 @@
           </div>
         </button>
 
+        <!-- Result Container -->
         <div id="result-container"
           class="hidden flex flex-col items-center space-y-6 pt-8 border-t border-white/10 animate-fade-in">
 
@@ -220,9 +237,11 @@
         </div>
 
       </div>
+
     </div>
   </main>
 
+  <!-- Footer -->
   <footer class="relative z-20 w-full mt-auto">
     <div class="max-w-7xl mx-auto px-4 py-8 flex flex-col items-center justify-center gap-3 text-center">
 
@@ -235,6 +254,7 @@
   </footer>
 
   <script>
+    // Atualiza o ano no rodapé dinamicamente
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
